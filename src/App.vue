@@ -2,7 +2,7 @@
   <div id="app">
     <el-container style="height: 100%">
       <el-aside width="200px" style="display: flex;flex-direction: column;">
-        <div class="logo">1111</div>
+        <router-link to="/">11111</router-link>
         <el-menu style="flex-grow: 1" router>
           <el-submenu
               v-for="(submenu,submenuIndex) in routerPaths"

@@ -1,19 +1,29 @@
 export default [
     {
-        path:'test',
-        name:'test',
-        icon:'el-icon-platform-eleme',
+        path:'workSpace',
+        name:'work-space',
+        icon:'el-icon-s-home',
+        component:{render:h=>h('router-view')},
         meta:{
-            label:'测试'
+            label:'工作台'
         },
         children:[
             {
-                path:'test2',
-                name:'test2',
+                path:'userManage',
+                name:'user-manage',
+                component:() => import('@/views/work-space/user-manage'),
                 meta:{
-                    label:'测试2'
+                    label:'用户管理'
                 },
-            }
+            },
+            {
+                path:'monitorDevice',
+                name:'monitor-device',
+                component:() => import('@/views/work-space/monitor-device'),
+                meta:{
+                    label:'监测设备'
+                },
+            },
         ]
     }
 ]

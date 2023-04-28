@@ -9,7 +9,7 @@ const routes = [{
     meta:{
         label:'首页'
     },
-    component: () => import('@/views/index'),
+    component:{render:h=>h('router-view')},
     children:routerPaths
 }]
 
