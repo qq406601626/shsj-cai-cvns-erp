@@ -24,6 +24,22 @@ export default [
                     label:'监测设备'
                 },
             },
+            {
+                path:'monitorReport',
+                name:'monitor-report',
+                component:() => import('@/views/work-space/monitor-report'),
+                meta:{
+                    label:'监测报告'
+                },
+            },
+            {
+                path:'feedback',
+                name:'feedback',
+                component:() => import('@/views/work-space/feedback'),
+                meta:{
+                    label:'意见反馈'
+                },
+            },
         ]
-    }
+    },
 ]

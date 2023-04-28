@@ -8,7 +8,8 @@ export default {
                 },
                 tableData:{
                     loading:false,
-                    list:[]
+                    // todo
+                    list:[{}]
                 },
                 paginationData:{
                     currentPage:0,
