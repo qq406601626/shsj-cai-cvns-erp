@@ -8,10 +8,10 @@
           label-width="200px"
       >
         <el-form-item label="设备序列号：" prop="equipSerialNum">
-          <el-input v-model="formModel.equipSerialNum" clearable/>
+          <el-input v-model="formModel.equipSerialNum" disabled/>
         </el-form-item>
         <el-form-item label="设备名称：" prop="equipName">
-          <el-input v-model="formModel.equipName" clearable/>
+          <el-input v-model="formModel.equipName" disabled/>
         </el-form-item>
         <el-form-item label="主摄像机名称：" prop="mainConfig.mainCameraName">
           <el-input v-model="formModel.mainConfig.mainCameraName" clearable/>
@@ -100,13 +100,25 @@ export default {
       try {
         await this.$refs.form.validate()
         this.submitButtonLoading = true
-        await this.$axios.post('/biz/equipmentMetaInfo/add', this.formModel)
+        const postData = {
+          id: this.formModel.equipSerialNum,
+          mainConfig: this.formModel.mainConfig
+        }
+        await this.$axios.post('/biz/equipmentMetaInfo/edit', postData)
         this.submitButtonLoading = false
-        this.$message.success('新增设备成功')
+        this.$message.success('编辑设备成功')
         this.$router.push({name: 'device-list'})
       } catch (e) {
         this.submitButtonLoading = false
       }
+    }
+  },
+  mounted() {
+    try {
+      const editDeviceRowInfo = JSON.parse(sessionStorage.getItem('editDeviceRowInfo'))
+      this.formModel = editDeviceRowInfo
+    } catch (e) {
+      this.$router.back()
     }
   }
 }

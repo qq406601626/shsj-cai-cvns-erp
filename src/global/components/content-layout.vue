@@ -8,7 +8,7 @@
     </div>
     <div v-if="$slots.default" class="table-wrap">
       <el-table
-          v-loading="tableData.tableLoading"
+          v-loading="tableData.loading"
           height="100%"
           :data="tableData.list"
           border
@@ -38,7 +38,7 @@ export default {
       type: Object,
       default() {
         return {
-          tableLoading: false,
+          loading: false,
           list: []
         }
       }

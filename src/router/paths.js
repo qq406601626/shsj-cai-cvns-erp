@@ -47,6 +47,15 @@ export default [
                         meta:{
                             label:'新增设备'
                         },
+                    },
+                    {
+                        path:'editDevice',
+                        name:'edit-device',
+                        component:() => import('@/views/work-space/device-manage/edit-device'),
+                        meta:{
+                            label:'编辑设备',
+                            hidden:true
+                        },
                     }
                 ]
             },

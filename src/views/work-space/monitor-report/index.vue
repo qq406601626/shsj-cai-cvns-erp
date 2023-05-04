@@ -12,23 +12,36 @@
       </el-col>
       <el-col :span="6">
         <search-item label="报告生成时间">
-          <el-input/>
+          <el-date-picker
+              v-model="pageData.searchData.searchModel.createTime"
+              type="date"
+              placeholder="选择日期">
+          </el-date-picker>
         </search-item>
       </el-col>
     </el-row>
     <template slot="search-buttons">
-      <el-button type="primary">生成报告</el-button>
-      <el-button type="primary">查询</el-button>
+      <el-button type="primary"  @click="handlerGenerateReport">生成报告</el-button>
+      <el-button
+          type="primary"
+          :loading="pageData.searchData.searchButtonLoading"
+          @click="handlerSearch"
+      >
+        查询
+      </el-button>
     </template>
     <template>
-      <el-table-column label="设备序列号" prop="设备序列号" align="center"/>
-      <el-table-column label="项目名称" prop="项目名称" align="center"/>
+      <el-table-column label="设备序列号" prop="equipSerialNum" align="center"/>
+      <el-table-column label="项目名称" prop="projectName" align="center"/>
+      <!--todo-->
       <el-table-column label="监测点" prop="监测点" align="center"/>
+      <!--todo-->
       <el-table-column label="报告时问殷" prop="报告时问殷" align="center"/>
-      <el-table-column label="报告生成时问" prop="报告生成时问" align="center"/>
-      <el-table-column label="报告人" prop="报告人" align="center"/>
+      <el-table-column label="报告生成时问" prop="createTime" align="center"/>
+      <el-table-column label="报告人" prop="reportUserName" align="center"/>
+      <!--todo-->
       <el-table-column label="关联手机号" prop="关联手机号" align="center"/>
-      <el-table-column label="申请人" prop="申请人" align="center"/>
+      <el-table-column label="申请人" prop="applyUserName" align="center"/>
       <el-table-column label="操作" fixed="right" align="center">
         <template slot-scope="scope">
           <el-button type="text">下载查看</el-button>
@@ -40,8 +53,30 @@
 
 <script>
 export default {
+  fetchTableUrl: '/biz/reportInfo/page',
   data() {
-    return {}
+    return {
+      pageData: {
+        searchData: {
+          searchModel: {
+            projectName: '',
+            createTime: ''
+          }
+        },
+      },
+    }
+  },
+  methods:{
+    async handlerGenerateReport(){
+      // /biz/reportInfo/add
+      // "equipSerialNum": "string",
+      //     "checkDateFrom": "2019-08-24T14:15:22Z",
+      //     "checkDateTo": "2019-08-24T14:15:22Z",
+      //     "applyFrom": "string"
+    }
+  },
+  mounted() {
+    this.fetchTableData()
   }
 }
 </script>

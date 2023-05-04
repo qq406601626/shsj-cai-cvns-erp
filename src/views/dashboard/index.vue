@@ -29,6 +29,7 @@
                 </template>
                 <el-menu-item
                     v-for="(thirdMenu,thirdMenuIndex) in submenuItem.children"
+                    v-if="!thirdMenu.meta?.hidden"
                     :key="thirdMenuIndex"
                     :index="thirdMenu.name"
                     :route="thirdMenu"
@@ -51,17 +52,13 @@
         <el-header>
           <el-row type="flex" justify="space-between" align="middle" style="height: 100%">
             <div>{{ $route.meta.label }}</div>
-            <el-dropdown>
+            <el-dropdown v-if="userInfo.id" @command="handlerCommandChange">
               <span class="el-dropdown-link">
-                <span>欢迎你，Lycon</span>
+                <span>欢迎你，{{userInfo.name}}</span>
                 <i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item>黄金糕</el-dropdown-item>
-                <el-dropdown-item>狮子头</el-dropdown-item>
-                <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-                <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+                <el-dropdown-item command="logout">退出</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
           </el-row>
@@ -75,14 +72,27 @@
 </template>
 <script>
 import routerPaths from '@/router/paths'
+import config from '@/utils/auth/config'
+import fetchUserInfo from '@/utils/auth/userInfo'
 
 export default {
   data() {
     return {
+      userInfo:{},
       routerPaths: Object.freeze(routerPaths),
     }
   },
-  methods: {}
+  methods: {
+    handlerCommandChange(commandName) {
+      if (commandName === 'logout') {
+        localStorage.removeItem(config.tokenSsKey)
+        this.$router.push({name: 'auth-login'})
+      }
+    }
+  },
+  async mounted() {
+    this.userInfo =  await fetchUserInfo()
+  }
 };
 </script>
 <style lang="scss">

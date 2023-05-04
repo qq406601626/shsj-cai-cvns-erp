@@ -12,11 +12,13 @@ body {
   #app {
     width: 100vw;
     height: 100vh;
-    .aside-nav-manu{
-      .el-submenu__title{
+
+    .aside-nav-manu {
+      .el-submenu__title {
         background: #414e69 !important;
       }
-      .el-submenu__icon-arrow{
+
+      .el-submenu__icon-arrow {
         color: #ffffff;
       }
     }
