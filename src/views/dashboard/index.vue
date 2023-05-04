@@ -21,14 +21,29 @@
               <i :class="submenu.icon" style="color: #ffffff"/>
               <span>{{ submenu.meta.label }}</span>
             </template>
-            <el-menu-item
-                v-for="(submenuItem,submenuItemIndex) in submenu.children"
-                :key="submenuItemIndex"
-                :index="submenuItem.name"
-                :route="submenuItem"
-            >
-              <span>{{ submenuItem.meta.label }}</span>
-            </el-menu-item>
+            <template v-for="(submenuItem) in submenu.children">
+              <el-submenu v-if="submenuItem.children" :index="submenuItem.name">
+                <template slot="title">
+                  <i :class="submenuItem.icon" style="color: #ffffff"/>
+                  <span>{{ submenuItem.meta.label }}</span>
+                </template>
+                <el-menu-item
+                    v-for="(thirdMenu,thirdMenuIndex) in submenuItem.children"
+                    :key="thirdMenuIndex"
+                    :index="thirdMenu.name"
+                    :route="thirdMenu"
+                >
+                  <span>{{ thirdMenu.meta.label }}</span>
+                </el-menu-item>
+              </el-submenu>
+              <el-menu-item
+                  v-else
+                  :index="submenuItem.name"
+                  :route="submenuItem"
+              >
+                <span>{{ submenuItem.meta.label }}</span>
+              </el-menu-item>
+            </template>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -78,13 +93,24 @@ body {
   #app {
     width: 100vw;
     height: 100vh;
-    .aside-nav-manu{
-      .el-submenu__title{
-        background: #414e69 !important;
+
+    .aside-nav-manu {
+      .el-submenu {
+        .el-submenu__title {
+          background: #414e69 !important;
+        }
+
+        .el-submenu__icon-arrow {
+          color: #ffffff;
+        }
+
+        .el-submenu {
+          .el-submenu__title {
+            background-color: rgb(81, 97, 131) !important;
+          }
+        }
       }
-      .el-submenu__icon-arrow{
-        color: #ffffff;
-      }
+
     }
   }
 }

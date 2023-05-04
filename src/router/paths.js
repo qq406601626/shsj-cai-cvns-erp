@@ -25,6 +25,32 @@ export default [
                 },
             },
             {
+                path:'deviceManage',
+                name:'device-manage',
+                component:{render:h=>h('router-view')},
+                meta:{
+                    label:'设备管理'
+                },
+                children:[
+                    {
+                        path:'deviceList',
+                        name:'device-list',
+                        component:() => import('@/views/work-space/device-manage/device-list'),
+                        meta:{
+                            label:'设备列表'
+                        },
+                    },
+                    {
+                        path:'addDevice',
+                        name:'add-device',
+                        component:() => import('@/views/work-space/device-manage/add-device'),
+                        meta:{
+                            label:'新增设备'
+                        },
+                    }
+                ]
+            },
+            {
                 path:'monitorReport',
                 name:'monitor-report',
                 component:() => import('@/views/work-space/monitor-report'),
