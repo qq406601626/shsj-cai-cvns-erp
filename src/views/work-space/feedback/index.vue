@@ -7,24 +7,30 @@
     <el-row slot="search-controls" :gutter="40">
       <el-col :span="6">
         <search-item label="反馈手机号">
-          <el-input/>
+          <el-input v-model="pageData.searchData.searchModel.relatedUserPhone" clearable/>
         </search-item>
       </el-col>
       <el-col :span="6">
         <search-item label="关联用户">
-          <el-input/>
+          <el-input  v-model="pageData.searchData.searchModel.relatedUserName" clearable/>
         </search-item>
       </el-col>
     </el-row>
     <template slot="search-buttons">
-      <el-button type="primary">查询</el-button>
+      <el-button
+          type="primary"
+          :loading="pageData.searchData.searchButtonLoading"
+          @click="handlerSearch"
+      >
+        查询
+      </el-button>
     </template>
     <template>
-      <el-table-column label="反馈ID" prop="序列设备号" align="center"/>
-      <el-table-column label="反馈信息" prop="项目名称" align="center"/>
-      <el-table-column label="反馈时间" prop="所在位置经纬度" align="center"/>
-      <el-table-column label="反馈人" prop="监测点" align="center"/>
-      <el-table-column label="反馈手机号" prop="开始盘测时问" align="center"/>
+      <el-table-column label="反馈ID" prop="id" align="center"/>
+      <el-table-column label="反馈信息" prop="content" align="center"/>
+      <el-table-column label="反馈时间" prop="createTime" align="center"/>
+      <el-table-column label="反馈人" prop="relatedUserName" align="center"/>
+      <el-table-column label="反馈手机号" prop="relatedUserPhone" align="center"/>
       <el-table-column label="操作" fixed="right" align="center">
         <template slot-scope="scope">
           <el-button type="text">查看图片</el-button>
@@ -36,8 +42,21 @@
 
 <script>
 export default {
+  fetchTableUrl: '/biz/reportInfo/page',
   data() {
-    return {}
+    return {
+      pageData: {
+        searchData: {
+          searchModel: {
+            relatedUserPhone: '',
+            relatedUserName: ''
+          }
+        },
+      },
+    }
+  },
+  mounted() {
+    this.fetchTableData()
   }
 }
 </script>
