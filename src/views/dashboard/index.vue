@@ -9,8 +9,8 @@
             router
             background-color="#516183"
             text-color="#ffffff"
-            :default-openeds="['work-space']"
-            :default-active="$route.name || ''"
+            :default-openeds="['work-space'].concat($route.matched.map(route=>route.name||''))"
+            :default-active="$route.name || undefined"
             style="flex-grow: 0;border-right: none"
             class="aside-nav-manu"
         >
