@@ -1,5 +1,14 @@
 export default [
     {
+        path: '',
+        name:'index',
+        component:() => import('@/views/work-space/index'),
+        meta:{
+            label:'首页',
+            hidden:true
+        },
+    },
+    {
         path:'workSpace',
         name:'work-space',
         icon:'el-icon-s-home',

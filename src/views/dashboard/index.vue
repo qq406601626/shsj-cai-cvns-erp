@@ -9,11 +9,14 @@
             router
             background-color="#516183"
             text-color="#ffffff"
+            :default-openeds="['work-space']"
+            :default-active="$route.name || ''"
             style="flex-grow: 0;border-right: none"
             class="aside-nav-manu"
         >
           <el-submenu
               v-for="(submenu,submenuIndex) in routerPaths"
+              v-if="!submenu.meta?.hidden"
               :key="submenuIndex"
               :index="submenu.name"
           >
