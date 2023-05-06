@@ -3,7 +3,7 @@
     <el-form
         class="form-wrap"
         label-width="60px"
-        :style="{transform:`scale(${_scale})`}">
+        :style="{zoom:_scale}">
       <div class="title" style="font-size: 22px;color: #000;font-weight: bolder;margin-bottom: 60px;margin-top: -20px">
         上海四建集团监测APP后台
       </div>

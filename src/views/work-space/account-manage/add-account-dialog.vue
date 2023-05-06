@@ -28,7 +28,13 @@
     </el-form>
     <span slot="footer" class="dialog-footer">
       <el-button @click="_value = false">取 消</el-button>
-      <el-button type="primary" @click="handlerSubmit">确 定</el-button>
+      <el-button
+          type="primary"
+          :loading="submitButtonLoading"
+          @click="handlerSubmit"
+      >
+        确 定
+      </el-button>
     </span>
   </el-dialog>
 </template>
@@ -37,7 +43,7 @@
 export default {
   props: {
     value: Boolean,
-    showAccountInfo:Function
+    showAccountInfo: Function
   },
   data() {
     return {
@@ -67,16 +73,33 @@ export default {
       try {
         await this.$refs.form.validate()
         this.submitButtonLoading = true
-        const accountInfo = await this.$axios.post('/biz/user/add', this.formModel)
+        const {name, account, extJson} = await this.$axios.post('/biz/user/add', this.formModel)
+        const parseExtJson = JSON.parse(extJson)
         this._value = false
         await this.$nextTick()
-        this.showAccountInfo(accountInfo)
+        this.showAccountInfo({
+          name,
+          account,
+          password: parseExtJson.pass
+        })
         this.submitButtonLoading = false
         this.$emit('add-success')
       } catch (e) {
+        console.log('ee', e)
         this.submitButtonLoading = false
       }
 
+    }
+  },
+  watch: {
+    _value(v) {
+      if (v) {
+        this.formModel.name = ''
+        this.formModel.account = ''
+        this.$nextTick(() => {
+          this.$refs.form.clearValidate()
+        })
+      }
     }
   }
 }

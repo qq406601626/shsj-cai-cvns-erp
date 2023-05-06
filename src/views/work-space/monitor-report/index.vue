@@ -8,7 +8,9 @@
       <el-row slot="search-controls" :gutter="40">
         <el-col :span="6">
           <search-item label="项目名称">
+            <!--todo：过滤项不生效-->
             <el-input
+                v-model="pageData.searchData.searchModel.projectName"
                 clearable
                 placeholder="请输入项目名称"
             />
@@ -16,6 +18,7 @@
         </el-col>
         <el-col :span="6">
           <search-item label="报告生成时间">
+            <!--todo：过滤项不生效-->
             <el-date-picker
                 v-model="pageData.searchData.searchModel.createTime"
                 type="date"
@@ -47,8 +50,9 @@
         <el-table-column label="关联手机号" prop="关联手机号" align="center"/>
         <el-table-column label="申请人" prop="applyUserName" align="center"/>
         <el-table-column label="操作" fixed="right" align="center">
+          <!--todo：文件下载损坏，不能用-->
           <template slot-scope="scope">
-            <el-button type="text">下载查看</el-button>
+            <a :href="scope.row.reportUrl || 'javascript:void(0)'"><el-button type="text">下载查看</el-button></a>
           </template>
         </el-table-column>
       </template>

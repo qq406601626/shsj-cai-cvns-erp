@@ -110,6 +110,18 @@ export default {
       }
 
     }
+  },
+  watch:{
+    _value(v){
+      if(v){
+        this.formModel.equipSerialNum = ''
+        this.formModel.checkDateFrom = ''
+        this.formModel.checkDateTo = ''
+        this.$nextTick(()=>{
+          this.$refs.form.clearValidate()
+        })
+      }
+    }
   }
 }
 </script>
