@@ -87,17 +87,20 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: gray;
+  background: url("/img/auth/login/bg.jpg") center/cover no-repeat;
 
   .form-wrap {
     width: 450px;
     height: 420px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255,255,255,0.3);
+
 
     .title {
       font-size: 22px;
