@@ -2,6 +2,7 @@
   <el-dialog
       title="新增报告"
       :visible.sync="_value"
+      :close-on-click-modal="false"
       width="600px"
   >
     <el-form
@@ -96,7 +97,8 @@ export default {
         this.$alert('<div style="text-align: center"><h3>报告生成中</h3><div>报告生成预计2分钟</div><div>请稍后在报告页面中查询</div></div>', '', {
           dangerouslyUseHTMLString: true,
           confirmButtonText: '知道了',
-          center: true
+          center: true,
+          showClose:false
         })
         this.submitButtonLoading = false
       } catch (e) {

@@ -84,6 +84,14 @@ export default [
                     label:'意见反馈'
                 },
             },
+            {
+                path:'accountManage',
+                name:'account-manage',
+                component:() => import('@/views/work-space/account-manage'),
+                meta:{
+                    label:'账号管理'
+                },
+            },
         ]
     },
 ]
