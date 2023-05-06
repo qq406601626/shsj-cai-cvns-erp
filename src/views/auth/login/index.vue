@@ -22,6 +22,7 @@
             v-model="formModel.password"
             type="password"
             clearable
+            show-password
             placeholder="请输入密码"
             style="width: 300px"
         />
