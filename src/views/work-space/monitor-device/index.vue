@@ -9,17 +9,29 @@
     <el-row slot="search-controls" :gutter="40">
       <el-col :span="6">
         <search-item label="设备序列号">
-          <el-input v-model="pageData.searchData.searchModel.equipSerialNum" clearable/>
+          <el-input
+              v-model="pageData.searchData.searchModel.equipSerialNum"
+              clearable
+              placeholder="请输入设备序列号"
+          />
         </search-item>
       </el-col>
       <el-col :span="6">
         <search-item label="项目名称">
-          <el-input v-model="pageData.searchData.searchModel.projectName" clearable/>
+          <el-input
+              v-model="pageData.searchData.searchModel.projectName"
+              clearable
+              placeholder="请输入项目名称"
+          />
         </search-item>
       </el-col>
       <el-col :span="6">
         <search-item label="关联用户">
-          <el-input v-model="pageData.searchData.searchModel.bindUserName" clearable/>
+          <el-input
+              v-model="pageData.searchData.searchModel.bindUserName"
+              clearable
+              placeholder="请输入关联用户"
+          />
         </search-item>
       </el-col>
     </el-row>

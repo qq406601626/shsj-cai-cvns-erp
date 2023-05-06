@@ -9,7 +9,11 @@
     <el-row slot="search-controls" :gutter="40">
       <el-col :span="6">
         <search-item label="设备序列号">
-          <el-input v-model="pageData.searchData.searchModel.equipSerialNum" clearable/>
+          <el-input
+              v-model="pageData.searchData.searchModel.equipSerialNum"
+              clearable
+              placeholder="请输入设备序列号"
+          />
         </search-item>
       </el-col>
     </el-row>

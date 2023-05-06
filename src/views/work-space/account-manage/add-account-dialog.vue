@@ -12,10 +12,18 @@
         label-width="80px"
     >
       <el-form-item label="用户名" prop="name">
-        <el-input v-model="formModel.name" clearable/>
+        <el-input
+            v-model="formModel.name"
+            clearable
+            placeholder="请输入用户名"
+        />
       </el-form-item>
       <el-form-item label="账号" prop="account">
-        <el-input v-model="formModel.account" clearable/>
+        <el-input
+            v-model="formModel.account"
+            clearable
+            placeholder="请输入账号"
+        />
       </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">

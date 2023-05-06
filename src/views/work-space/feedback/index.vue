@@ -7,12 +7,20 @@
     <el-row slot="search-controls" :gutter="40">
       <el-col :span="6">
         <search-item label="反馈手机号">
-          <el-input v-model="pageData.searchData.searchModel.relatedUserPhone" clearable/>
+          <el-input
+              v-model="pageData.searchData.searchModel.relatedUserPhone"
+              clearable
+              placeholder="请输入反馈手机号"
+          />
         </search-item>
       </el-col>
       <el-col :span="6">
         <search-item label="关联用户">
-          <el-input  v-model="pageData.searchData.searchModel.relatedUserName" clearable/>
+          <el-input
+              v-model="pageData.searchData.searchModel.relatedUserName"
+              clearable
+              placeholder="请输入关联用户"
+          />
         </search-item>
       </el-col>
     </el-row>

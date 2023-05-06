@@ -8,7 +8,10 @@
       <el-row slot="search-controls" :gutter="40">
         <el-col :span="6">
           <search-item label="项目名称">
-            <el-input/>
+            <el-input
+                clearable
+                placeholder="请输入项目名称"
+            />
           </search-item>
         </el-col>
         <el-col :span="6">

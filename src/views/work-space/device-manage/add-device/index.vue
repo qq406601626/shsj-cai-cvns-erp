@@ -8,40 +8,88 @@
           label-width="200px"
       >
         <el-form-item label="设备序列号：" prop="equipSerialNum">
-          <el-input v-model="formModel.equipSerialNum" clearable/>
+          <el-input
+              v-model="formModel.equipSerialNum"
+              clearable
+              placeholder="请输入设备序列号"
+          />
         </el-form-item>
         <el-form-item label="设备名称：" prop="equipName">
-          <el-input v-model="formModel.equipName" clearable/>
+          <el-input
+              v-model="formModel.equipName"
+              clearable
+              placeholder="请输入设备名称"
+          />
         </el-form-item>
         <el-form-item label="主摄像机名称：" prop="mainConfig.mainCameraName">
-          <el-input v-model="formModel.mainConfig.mainCameraName" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.mainCameraName"
+              clearable
+              placeholder="请输入主摄像机名称"
+          />
         </el-form-item>
         <el-form-item label="主摄像机IP：" prop="mainConfig.mainCameraIp">
-          <el-input v-model="formModel.mainConfig.mainCameraIp" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.mainCameraIp"
+              clearable
+              placeholder="请输入主摄像机IP"
+          />
         </el-form-item>
         <el-form-item label="主摄像机端口：" prop="mainConfig.mainCameraPort">
-          <el-input v-model="formModel.mainConfig.mainCameraPort" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.mainCameraPort"
+              clearable
+              placeholder="请输入主摄像机端口"
+          />
         </el-form-item>
         <el-form-item label="主摄像机账号：" prop="mainConfig.mainCameraAccount">
-          <el-input v-model="formModel.mainConfig.mainCameraAccount" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.mainCameraAccount"
+              clearable
+              placeholder="请输入主摄像机账号"
+          />
         </el-form-item>
         <el-form-item label="主摄像机密码：" prop="mainConfig.mainCameraPassword">
-          <el-input v-model="formModel.mainConfig.mainCameraPassword" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.mainCameraPassword"
+              clearable
+              placeholder="请输入主摄像机密码"
+          />
         </el-form-item>
         <el-form-item label="副摄像机名称：" prop="mainConfig.secondaryCameraName">
-          <el-input v-model="formModel.mainConfig.secondaryCameraName" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.secondaryCameraName"
+              clearable
+              placeholder="请输入副摄像机名称"
+          />
         </el-form-item>
         <el-form-item label="副摄像机IP：" prop="mainConfig.secondaryCameraIp">
-          <el-input v-model="formModel.mainConfig.secondaryCameraIp" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.secondaryCameraIp"
+              clearable
+              placeholder="请输入副摄像机IP"
+          />
         </el-form-item>
         <el-form-item label="副摄像机端口：" prop="mainConfig.secondaryCameraPort">
-          <el-input v-model="formModel.mainConfig.secondaryCameraPort" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.secondaryCameraPort"
+              clearable
+              placeholder="请输入副摄像机端口"
+          />
         </el-form-item>
         <el-form-item label="副摄像机账号：" prop="mainConfig.secondaryCameraAccount">
-          <el-input v-model="formModel.mainConfig.secondaryCameraAccount" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.secondaryCameraAccount"
+              clearable
+              placeholder="请输入副摄像机账号"
+          />
         </el-form-item>
         <el-form-item label="副摄像机密码：" prop="mainConfig.secondaryCameraPassword">
-          <el-input v-model="formModel.mainConfig.secondaryCameraPassword" clearable/>
+          <el-input
+              v-model="formModel.mainConfig.secondaryCameraPassword"
+              clearable
+              placeholder="请输入副摄像机密码"
+          />
         </el-form-item>
         <el-row type="flex" justify="center">
           <el-button @click="$router.push({name:'device-list'})">取消</el-button>

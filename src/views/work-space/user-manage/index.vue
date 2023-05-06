@@ -7,7 +7,10 @@
     <el-row slot="search-controls" :gutter="40">
       <el-col :span="6">
         <search-item label="手机号">
-          <el-input/>
+          <el-input
+              clearable
+              placeholder="请输入手机号"
+          />
         </search-item>
       </el-col>
       <el-col :span="6">

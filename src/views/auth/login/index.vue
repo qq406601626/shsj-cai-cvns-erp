@@ -5,36 +5,47 @@
         label-width="60px"
         :style="{transform:`scale(${_scale})`}">
       <div class="title" style="font-size: 22px;color: #000;font-weight: bolder;margin-bottom: 60px;margin-top: -20px">
-        施工CAD插件系统
+        上海四建集团监测APP后台
       </div>
       <el-form-item>
         <span slot="label" style="color: #ffffff;font-size: 16px">账号：</span>
-        <el-input v-model="formModel.account" style="width: 300px"/>
+        <el-input
+            v-model="formModel.account"
+            clearable
+            placeholder="请输入账号"
+            style="width: 300px"
+        />
       </el-form-item>
       <el-form-item>
         <span slot="label" style="color: #ffffff;font-size: 16px">密码：</span>
         <el-input
             v-model="formModel.password"
             type="password"
-            style="width: 300px"/>
+            clearable
+            placeholder="请输入密码"
+            style="width: 300px"
+        />
       </el-form-item>
       <el-form-item label="">
         <el-button
+            :loading="submitButtonLoading"
             @click="handlerSubmit"
-                    style="width: 300px"
-        >登录</el-button>
+            style="width: 300px"
+        >
+          登录
+        </el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
-import {getEncryptPwd,setEncryptToken} from '@/utils/auth'
+import {getEncryptPwd, setEncryptToken} from '@/utils/auth'
 
 export default {
   data() {
     return {
-      submitButtonLoading:false,
+      submitButtonLoading: false,
       formModel: {
         account: 'superAdmin',
         password: '123456'
@@ -50,7 +61,7 @@ export default {
     async handlerSubmit() {
       try {
         this.submitButtonLoading = true
-        const encryptionPassword =getEncryptPwd(this.formModel.password)
+        const encryptionPassword = getEncryptPwd(this.formModel.password)
         const postData = {
           account: this.formModel.account,
           password: encryptionPassword
@@ -59,7 +70,7 @@ export default {
         setEncryptToken(token)
         this.submitButtonLoading = false
         this.$router.push('/')
-      }catch (e){
+      } catch (e) {
         this.submitButtonLoading = false
       }
 

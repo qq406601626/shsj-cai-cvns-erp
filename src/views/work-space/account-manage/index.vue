@@ -8,7 +8,11 @@
       <el-row slot="search-controls" :gutter="40">
         <el-col :span="6">
           <search-item label="用户名">
-            <el-input v-model="pageData.searchData.searchModel.searchKey" clearable/>
+            <el-input
+                v-model="pageData.searchData.searchModel.searchKey"
+                clearable
+                placeholder="请输入用户名"
+            />
           </search-item>
         </el-col>
       </el-row>

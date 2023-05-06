@@ -12,7 +12,11 @@
         label-width="140px"
     >
       <el-form-item label="设备序列号" prop="equipSerialNum">
-        <el-input v-model="formModel.equipSerialNum" clearable/>
+        <el-input
+            v-model="formModel.equipSerialNum"
+            clearable
+            placeholder="请输入设备序列号"
+        />
       </el-form-item>
       <el-form-item label="检测时间段" prop="daterangeModel">
         <el-date-picker
