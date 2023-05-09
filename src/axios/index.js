@@ -4,7 +4,7 @@ import router from '../router'
 import {getDecryptToken} from '@/utils/auth'
 
 const axiosInstance = axios.create({
-    baseURL: '/',
+    baseURL: '/api',
     timeout: 3000,
 });
 const responseErrorMap = {
