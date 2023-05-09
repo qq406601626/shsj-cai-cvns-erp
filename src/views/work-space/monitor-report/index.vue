@@ -4,6 +4,8 @@
         :has-pagination="true"
         :table-data="pageData.tableData"
         :pagination-data="pageData.paginationData"
+        @size-change="handlerSizeChange"
+        @current-change="handlerCurrentChange"
     >
       <el-row slot="search-controls" :gutter="40">
         <el-col :span="6">
