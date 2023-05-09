@@ -11,6 +11,7 @@
             text-color="#ffffff"
             :default-openeds="['work-space'].concat($route.matched.map(route=>route.name||''))"
             :default-active="$route.name || undefined"
+            active-text-color="#409EFF"
             style="flex-grow: 0;border-right: none"
             class="aside-nav-manu"
         >

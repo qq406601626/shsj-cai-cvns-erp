@@ -29,6 +29,7 @@
       </el-form-item>
       <el-form-item label="">
         <el-button
+            type="primary"
             :loading="submitButtonLoading"
             @click="handlerSubmit"
             style="width: 300px"

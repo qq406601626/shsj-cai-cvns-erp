@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import axiosInstance from '@/axios'
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
+import '@/assets/style/theme/index.css'
 import contentLayout from '@/global/components/content-layout'
 import searchItem from '@/global/components/search-item'
 import mixins from "@/global/mixins"
