@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <el-container style="height: 100%">
-      <el-aside width="200px" style="display:flex;flex-direction:column;background: #414e69">
+      <el-aside width="200px" style="display:flex;flex-direction:column;background: #8095f4">
         <router-link to="/" style="flex-shrink: 0;text-align: center">
           <img src="~@/assets/logo.png" alt="logo" height="50">
         </router-link>
         <el-menu
             router
-            background-color="#516183"
+            background-color="#9fa1f5"
             text-color="#ffffff"
             :default-openeds="['work-space'].concat($route.matched.map(route=>route.name||''))"
             :default-active="$route.name || undefined"
-            active-text-color="#409EFF"
+            active-text-color="#2B4FED"
             style="flex-grow: 0;border-right: none"
             class="aside-nav-manu"
         >
@@ -53,10 +53,10 @@
         </el-menu>
       </el-aside>
       <el-container>
-        <el-header>
+        <el-header style="background: #8095f4;color:#ffffff;">
           <el-row type="flex" justify="space-between" align="middle" style="height: 100%">
             <div>{{ $route.meta.label }}</div>
-            <el-dropdown v-if="userInfo.id" @command="handlerCommandChange">
+            <el-dropdown v-if="userInfo.id" @command="handlerCommandChange" style="color: #ffffff">
               <span class="el-dropdown-link">
                 <span>欢迎你，{{userInfo.name}}</span>
                 <i class="el-icon-arrow-down el-icon--right"></i>
@@ -111,7 +111,7 @@ body {
     .aside-nav-manu {
       .el-submenu {
         .el-submenu__title {
-          background: #414e69 !important;
+          background: #8095f4 !important;
         }
 
         .el-submenu__icon-arrow {
@@ -120,7 +120,7 @@ body {
 
         .el-submenu {
           .el-submenu__title {
-            background-color: rgb(81, 97, 131) !important;
+            background-color: #8095f4 !important;
           }
         }
       }
