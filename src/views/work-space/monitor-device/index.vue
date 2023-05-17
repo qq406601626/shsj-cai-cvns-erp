@@ -54,8 +54,12 @@
       </el-table-column>
       <el-table-column label="监测点" prop="checkSpotsCount" align="center"/>
       <el-table-column label="开始监测时问" prop="startMonitorTime" align="center"/>
-      <!--todo：单位换算-->
-      <el-table-column label="监测时长" prop="监测时长" align="center"/>
+      <el-table-column label="监测时长" prop="checkTime" align="center">
+        <template slot-scope="{row}">
+          <span>{{ +(((row.checkTime || 0) / 1000 / 3600).toFixed(2))  }}</span>
+          <span>h</span>
+        </template>
+      </el-table-column>
       <el-table-column label="关联人" prop="bindUserName" align="center"/>
       <el-table-column label="关联手机号" prop="bindUserPhone" align="center"/>
     </template>
