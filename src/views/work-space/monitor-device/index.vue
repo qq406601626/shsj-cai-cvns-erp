@@ -49,7 +49,7 @@
       <el-table-column label="项目名称" prop="projectName" align="center"/>
       <el-table-column label="所在位置经纬度" prop="所在位置经纬度" align="center">
         <template slot-scope="scope">
-          <span>{{ [scope.row.longitude,scope.row.latitude].join(',') }}</span>
+          <span>{{ [scope.row.gpsInfo.longitude,scope.row.gpsInfo.latitude].join(',') }}</span>
         </template>
       </el-table-column>
       <el-table-column label="监测点" prop="checkSpotsCount" align="center"/>

@@ -10,7 +10,6 @@
       <el-row slot="search-controls" :gutter="40">
         <el-col :span="6">
           <search-item label="项目名称">
-            <!--todo：过滤项不生效-->
             <el-input
                 v-model="pageData.searchData.searchModel.projectName"
                 clearable
@@ -48,11 +47,9 @@
         <el-table-column label="报告时问殷" prop="报告时问殷" align="center"/>
         <el-table-column label="报告生成时问" prop="createTime" align="center"/>
         <el-table-column label="报告人" prop="reportUserName" align="center"/>
-        <!--todo-->
-        <el-table-column label="关联手机号" prop="关联手机号" align="center"/>
+        <el-table-column label="关联手机号" prop="reportUserPhone" align="center"/>
         <el-table-column label="申请人" prop="applyUserName" align="center"/>
         <el-table-column label="操作" fixed="right" align="center">
-          <!--todo：文件下载损坏，不能用-->
           <template slot-scope="scope">
             <a :href="scope.row.reportUrl || 'javascript:void(0)'"><el-button type="text">下载查看</el-button></a>
           </template>
