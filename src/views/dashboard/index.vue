@@ -3,7 +3,7 @@
     <el-container style="height: 100%">
       <el-aside width="200px" style="display:flex;flex-direction:column;background: #001529">
         <router-link to="/" style="flex-shrink: 0;text-align: center">
-          <img src="~@/assets/logo.png" alt="logo" height="50">
+          <img src="~@/assets/logo-tiny.png" alt="logo" height="100">
         </router-link>
         <el-menu
             router

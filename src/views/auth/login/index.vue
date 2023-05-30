@@ -4,7 +4,8 @@
         class="form-wrap"
         label-width="60px"
         :style="{zoom:_scale}">
-      <div class="title" style="font-size: 22px;color: #000;font-weight: bolder;margin-bottom: 60px;margin-top: -20px">
+      <img src="~@/assets/logo.png" alt="logo" style="height: 120px;margin-top: -20px;-webkit-user-drag: none;">
+      <div class="title" style="font-size: 22px;color: #000;font-weight: bolder;margin-bottom: 40px;">
         上海四建集团监测APP后台
       </div>
       <el-form-item>
