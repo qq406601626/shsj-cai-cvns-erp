@@ -50,8 +50,10 @@ export default {
     return {
       submitButtonLoading: false,
       formModel: {
-        account: 'superAdmin',
-        password: '123456'
+        // account: 'superAdmin',
+        // password: '123456'
+        account: '',
+        password: ''
       }
     }
   },
