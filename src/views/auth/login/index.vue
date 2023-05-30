@@ -1,14 +1,17 @@
 <template>
   <div class="login-container">
     <el-form
+        ref="form"
+        :model="formModel"
         class="form-wrap"
         label-width="60px"
+        :hide-required-asterisk="true"
         :style="{zoom:_scale}">
       <img src="~@/assets/logo.png" alt="logo" style="height: 120px;margin-top: -20px;-webkit-user-drag: none;">
       <div class="title" style="font-size: 22px;color: #000;font-weight: bolder;margin-bottom: 40px;">
         上海四建集团监测APP后台
       </div>
-      <el-form-item>
+      <el-form-item prop="account" :rules="[{required:true,message:'请输入账号',trigger:'blur'}]">
         <span slot="label" style="color: #ffffff;font-size: 16px">账号：</span>
         <el-input
             v-model="formModel.account"
@@ -17,7 +20,7 @@
             style="width: 300px"
         />
       </el-form-item>
-      <el-form-item>
+      <el-form-item prop="password" :rules="[{required:true,message:'请输入密码',trigger:'blur'}]">
         <span slot="label" style="color: #ffffff;font-size: 16px">密码：</span>
         <el-input
             v-model="formModel.password"
@@ -65,6 +68,7 @@ export default {
   methods: {
     async handlerSubmit() {
       try {
+        await this.$refs.form.validate()
         this.submitButtonLoading = true
         const encryptionPassword = getEncryptPwd(this.formModel.password)
         const postData = {
