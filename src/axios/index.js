@@ -5,7 +5,7 @@ import {getDecryptToken} from '@/utils/auth'
 
 const axiosInstance = axios.create({
     baseURL: '/api',
-    timeout: 3000,
+    timeout: 30000,
 });
 const responseErrorMap = {
     401: '用户未登录',
