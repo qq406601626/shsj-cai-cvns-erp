@@ -26,6 +26,7 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             clearable
+            value-format="yyyy-MM-DD HH:mm:ss"
             style="width: 100%"
         >
         </el-date-picker>

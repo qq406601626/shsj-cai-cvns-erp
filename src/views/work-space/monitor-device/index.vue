@@ -7,7 +7,7 @@
       @current-change="handlerCurrentChange"
   >
     <el-row slot="search-controls" :gutter="40">
-      <el-col :span="6">
+      <el-col :sm="8" :xl="6">
         <search-item label="设备序列号">
           <el-input
               v-model="pageData.searchData.searchModel.equipSerialNum"
@@ -16,7 +16,7 @@
           />
         </search-item>
       </el-col>
-      <el-col :span="6">
+      <el-col :sm="8" :xl="6">
         <search-item label="项目名称">
           <el-input
               v-model="pageData.searchData.searchModel.projectName"
@@ -25,7 +25,7 @@
           />
         </search-item>
       </el-col>
-      <el-col :span="6">
+      <el-col :sm="8" :xl="6">
         <search-item label="关联用户">
           <el-input
               v-model="pageData.searchData.searchModel.bindUserName"

@@ -8,7 +8,7 @@
         @current-change="handlerCurrentChange"
     >
       <el-row slot="search-controls" :gutter="40">
-        <el-col :span="6">
+        <el-col :sm="8" :xl="6">
           <search-item label="用户名">
             <el-input
                 v-model="pageData.searchData.searchModel.searchKey"

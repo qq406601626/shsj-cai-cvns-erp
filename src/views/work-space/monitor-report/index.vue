@@ -8,7 +8,7 @@
         @current-change="handlerCurrentChange"
     >
       <el-row slot="search-controls" :gutter="40">
-        <el-col :span="6">
+        <el-col :sm="8" :xl="6">
           <search-item label="项目名称">
             <el-input
                 v-model="pageData.searchData.searchModel.projectName"
@@ -17,13 +17,15 @@
             />
           </search-item>
         </el-col>
-        <el-col :span="6">
+        <el-col :sm="8" :xl="6">
           <search-item label="报告生成时间">
             <!--todo：过滤项不生效-->
             <el-date-picker
                 v-model="pageData.searchData.searchModel.createTime"
+                value-format="yyyy-MM-DD HH:mm:ss"
                 type="date"
-                placeholder="选择日期">
+                placeholder="选择日期"
+                style="width: 100%">
             </el-date-picker>
           </search-item>
         </el-col>
