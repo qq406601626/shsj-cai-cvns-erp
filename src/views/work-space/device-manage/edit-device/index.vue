@@ -91,6 +91,34 @@
               placeholder="请输入副摄像机密码"
           />
         </el-form-item>
+        <el-form-item label="倾角仪ip：" prop="mainConfig.qjyIp">
+          <el-input
+              v-model="formModel.mainConfig.qjyIp"
+              clearable
+              placeholder="请输入倾角仪ip"
+          />
+        </el-form-item>
+        <el-form-item label="倾角仪端口：" prop="mainConfig.qjyPort">
+          <el-input
+              v-model="formModel.mainConfig.qjyPort"
+              clearable
+              placeholder="请输入倾角仪端口"
+          />
+        </el-form-item>
+        <el-form-item label="测距IP：" prop="mainConfig.stIp">
+          <el-input
+              v-model="formModel.mainConfig.stIp"
+              clearable
+              placeholder="请输入测距IP"
+          />
+        </el-form-item>
+        <el-form-item label="测距端口：" prop="mainConfig.stPort">
+          <el-input
+              v-model="formModel.mainConfig.stPort"
+              clearable
+              placeholder="请输入测距端口"
+          />
+        </el-form-item>
         <el-row type="flex" justify="center">
           <el-button @click="$router.push({name:'device-list'})">取消</el-button>
           <el-button
@@ -123,7 +151,11 @@ export default {
           secondaryCameraIp: '',
           secondaryCameraPort: '',
           secondaryCameraAccount: '',
-          secondaryCameraPassword: ''
+          secondaryCameraPassword: '',
+          qjyIp:'',
+          qjyPort:'',
+          stIp:'',
+          stPort:'',
         }
       },
       formRules: {
@@ -139,6 +171,10 @@ export default {
         'mainConfig.secondaryCameraPort': [{required: true, message: '请输入副摄像头端口号', trigger: 'blur'}],
         'mainConfig.secondaryCameraAccount': [{required: true, message: '请输入副摄像头账号', trigger: 'blur'}],
         'mainConfig.secondaryCameraPassword': [{required: true, message: '请输入副摄像头密码', trigger: 'blur'}],
+        'mainConfig.qjyIp': [{required: true, message: '请输入倾角仪ip', trigger: 'blur'}],
+        'mainConfig.qjyPort': [{required: true, message: '请输入倾角仪端口', trigger: 'blur'}],
+        'mainConfig.stIp': [{required: true, message: '请输入测距IP', trigger: 'blur'}],
+        'mainConfig.stPort': [{required: true, message: '请输入测距端口', trigger: 'blur'}],
       },
       submitButtonLoading: false
     }

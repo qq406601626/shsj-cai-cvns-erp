@@ -24,6 +24,7 @@ axiosInstance.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 axiosInstance.interceptors.response.use(function (response) {
+    // todo
     const {config, data} = response
     if (data.code in responseErrorMap) {
         if (!config.noErrMsg) {
