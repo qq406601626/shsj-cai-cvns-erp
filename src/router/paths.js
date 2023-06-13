@@ -1,12 +1,12 @@
 export default [
-    {
-        path: '',
-        name: 'index',
-        component: () => import('@/views/work-space/index'),
-        meta: {
-            label: '首页',
-        },
-    },
+    // {
+    //     path: '',
+    //     name: 'index',
+    //     component: () => import('@/views/work-space/index'),
+    //     meta: {
+    //         label: '首页',
+    //     },
+    // },
     {
         path: 'userManage',
         name: 'user-manage',
