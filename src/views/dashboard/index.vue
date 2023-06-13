@@ -58,7 +58,7 @@
                 </el-menu-item>
               </el-submenu>
               <el-menu-item
-                  v-else
+                  v-else-if="!submenuItem.meta?.hidden"
                   :index="submenuItem.name"
                   :route="submenuItem"
               >

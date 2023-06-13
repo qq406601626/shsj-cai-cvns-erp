@@ -5,18 +5,8 @@ export default [
         component: () => import('@/views/work-space/index'),
         meta: {
             label: '首页',
-            hidden: true
         },
     },
-    // {
-    //     path: 'workSpace',
-    //     name: 'work-space',
-    //     icon: 'el-icon-s-home',
-    //     component: {render: h => h('router-view')},
-    //     meta: {
-    //         label: '工作台'
-    //     },
-    // },
     {
         path: 'userManage',
         name: 'user-manage',
@@ -92,7 +82,8 @@ export default [
                 name: 'add-device',
                 component: () => import('@/views/work-space/device-manage/add-device'),
                 meta: {
-                    label: '新增设备'
+                    label: '新增设备',
+                    hidden: true
                 },
             },
             {
@@ -101,7 +92,7 @@ export default [
                 component: () => import('@/views/work-space/device-manage/edit-device'),
                 meta: {
                     label: '编辑设备',
-                    hidden: true
+                    hidden: true,
                 },
             }
         ]

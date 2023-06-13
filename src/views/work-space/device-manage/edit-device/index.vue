@@ -42,6 +42,13 @@
               placeholder="请输入主摄像机端口"
           />
         </el-form-item>
+        <el-form-item label="主摄像机SDK端口：" prop="mainConfig.mainCameraPortForSdk">
+          <el-input
+              v-model="formModel.mainConfig.mainCameraPortForSdk"
+              clearable
+              placeholder="请输入主摄像机SDK端口"
+          />
+        </el-form-item>
         <el-form-item label="主摄像机账号：" prop="mainConfig.mainCameraAccount">
           <el-input
               v-model="formModel.mainConfig.mainCameraAccount"
@@ -75,6 +82,13 @@
               v-model="formModel.mainConfig.secondaryCameraPort"
               clearable
               placeholder="请输入副摄像机端口"
+          />
+        </el-form-item>
+        <el-form-item label="副摄像机SDK端口：" prop="mainConfig.secondaryCameraPortForSdk">
+          <el-input
+              v-model="formModel.mainConfig.secondaryCameraPortForSdk"
+              clearable
+              placeholder="请输入副摄像机SDK端口"
           />
         </el-form-item>
         <el-form-item label="副摄像机账号：" prop="mainConfig.secondaryCameraAccount">
@@ -145,11 +159,12 @@ export default {
           mainCameraName: '',
           mainCameraIp: '',
           mainCameraPort: '',
+          mainCameraPortForSdk: '',
           mainCameraAccount: '',
           mainCameraPassword: '',
           secondaryCameraName: '',
           secondaryCameraIp: '',
-          secondaryCameraPort: '',
+          secondaryCameraPortForSdk: '',
           secondaryCameraAccount: '',
           secondaryCameraPassword: '',
           qjyIp:'',
@@ -161,16 +176,18 @@ export default {
       formRules: {
         equipSerialNum: [{required: true, message: '请输入设备序列号', trigger: 'blur'}],
         equipName: [{required: true, message: '请输入设备名称', trigger: 'blur'}],
-        'mainConfig.mainCameraName': [{required: true, message: '请输入主摄像头名称', trigger: 'blur'}],
-        'mainConfig.mainCameraIp': [{required: true, message: '请输入主摄像头IP地址', trigger: 'blur'}],
-        'mainConfig.mainCameraPort': [{required: true, message: '请输入主摄像头端口号', trigger: 'blur'}],
-        'mainConfig.mainCameraAccount': [{required: true, message: '请输入主摄像头账号', trigger: 'blur'}],
-        'mainConfig.mainCameraPassword': [{required: true, message: '请输入主摄像头密码', trigger: 'blur'}],
-        'mainConfig.secondaryCameraName': [{required: true, message: '请输入副摄像头名称', trigger: 'blur'}],
-        'mainConfig.secondaryCameraIp': [{required: true, message: '请输入副摄像头IP地址', trigger: 'blur'}],
-        'mainConfig.secondaryCameraPort': [{required: true, message: '请输入副摄像头端口号', trigger: 'blur'}],
-        'mainConfig.secondaryCameraAccount': [{required: true, message: '请输入副摄像头账号', trigger: 'blur'}],
-        'mainConfig.secondaryCameraPassword': [{required: true, message: '请输入副摄像头密码', trigger: 'blur'}],
+        'mainConfig.mainCameraName': [{required: true, message: '请输入主摄像机名称', trigger: 'blur'}],
+        'mainConfig.mainCameraIp': [{required: true, message: '请输入主摄像机IP地址', trigger: 'blur'}],
+        'mainConfig.mainCameraPort': [{required: true, message: '请输入主摄像机端口号', trigger: 'blur'}],
+        'mainConfig.mainCameraPortForSdk': [{required: true, message: '请输入主摄像机SDK端口号', trigger: 'blur'}],
+        'mainConfig.mainCameraAccount': [{required: true, message: '请输入主摄像机账号', trigger: 'blur'}],
+        'mainConfig.mainCameraPassword': [{required: true, message: '请输入主摄像机密码', trigger: 'blur'}],
+        'mainConfig.secondaryCameraName': [{required: true, message: '请输入副摄像机名称', trigger: 'blur'}],
+        'mainConfig.secondaryCameraIp': [{required: true, message: '请输入副摄像机IP地址', trigger: 'blur'}],
+        'mainConfig.secondaryCameraPort': [{required: true, message: '请输入副摄像机端口号', trigger: 'blur'}],
+        'mainConfig.secondaryCameraPortForSdk': [{required: true, message: '请输入副摄像机SDK端口号', trigger: 'blur'}],
+        'mainConfig.secondaryCameraAccount': [{required: true, message: '请输入副摄像机账号', trigger: 'blur'}],
+        'mainConfig.secondaryCameraPassword': [{required: true, message: '请输入副摄像机密码', trigger: 'blur'}],
         'mainConfig.qjyIp': [{required: true, message: '请输入倾角仪ip', trigger: 'blur'}],
         'mainConfig.qjyPort': [{required: true, message: '请输入倾角仪端口', trigger: 'blur'}],
         'mainConfig.stIp': [{required: true, message: '请输入测距IP', trigger: 'blur'}],
