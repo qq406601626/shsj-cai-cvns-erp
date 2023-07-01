@@ -11,6 +11,7 @@
         <!--todo：后端不支持过滤-->
         <search-item label="手机号">
           <el-input
+              v-model="pageData.searchData.searchModel.phone"
               clearable
               placeholder="请输入手机号"
           />
@@ -19,7 +20,11 @@
       <!--todo：后端不支持过滤-->
       <el-col :sm="8" :xl="6">
         <search-item label="注册时间">
-          <el-date-picker value-format="yyyy-MM-dd HH:mm:ss" style="width: 100%"/>
+          <el-date-picker
+              v-model="pageData.searchData.searchModel.createTime"
+              value-format="yyyy-MM-dd HH:mm:ss"
+              style="width: 100%"
+          />
         </search-item>
       </el-col>
     </el-row>
@@ -52,7 +57,10 @@ export default {
     return {
       pageData: {
         searchData: {
-          searchModel: { }
+          searchModel: {
+            phone: '',
+            createTime: ''
+          }
         },
       },
     }
