@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <el-container style="height: 100%">
-      <el-aside width="200px" style="display:flex;flex-direction:column;background: #001529;box-shadow: 1px 0 4px 0 rgba(0,0,0,0.1);">
+      <el-aside width="200px"
+                style="display:flex;flex-direction:column;background: #001529;box-shadow: 1px 0 4px 0 rgba(0,0,0,0.1);">
         <router-link to="/" style="flex-shrink: 0;text-align: center">
           <img src="~@/assets/logo-tiny.png" alt="logo" height="100">
         </router-link>
@@ -94,7 +95,6 @@
 <script>
 import routerPaths from '@/router/paths'
 import config from '@/utils/auth/config'
-import fetchUserInfo from '@/utils/auth/userInfo'
 
 export default {
   data() {
@@ -111,18 +111,9 @@ export default {
       }
     }
   },
-  watch:{
-    '$route'(to,from){
-      if(from.name==='auth-login'){
-        fetchUserInfo().then(userInfo=>{
-          this.userInfo = userInfo
-        }).catch(()=>{})
-      }
-    },
-  },
-  // async mounted() {
-  //   this.userInfo = await fetchUserInfo()
-  // }
+  async mounted() {
+    this.userInfo = await this.$axios.get('/auth/b/getLoginUser')
+  }
 };
 </script>
 <style lang="scss">
