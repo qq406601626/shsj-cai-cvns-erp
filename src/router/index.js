@@ -40,12 +40,12 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     // todo
     const token = getDecryptToken()
-    // if (to.name !== 'auth-login' && !token) {
-    //     next({name: 'auth-login'})
-    // } else {
-    //     next()
-    // }
-    next()
+    if (to.name !== 'auth-login' && !token) {
+        next({name: 'auth-login'})
+    } else {
+        next()
+    }
+    // next()
 })
 
 export default router
