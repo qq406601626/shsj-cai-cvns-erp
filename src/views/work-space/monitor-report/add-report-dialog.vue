@@ -96,7 +96,7 @@ export default {
       try {
         await this.$refs.form.validate()
         this.submitButtonLoading = true
-        this.$axios.post('/biz/reportInfo/add', this.formModel)
+        await this.$axios.post('/biz/reportInfo/add', this.formModel)
         this._value = false
         await this.$nextTick()
         this.$alert('<div style="text-align: center"><h3>报告生成中</h3><div>报告生成预计2分钟</div><div>请稍后在报告页面中查询</div></div>', '', {
