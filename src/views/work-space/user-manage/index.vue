@@ -19,7 +19,7 @@
       <!--todo：后端不支持过滤-->
       <el-col :sm="8" :xl="6">
         <search-item label="注册时间">
-          <el-date-picker value-format="yyyy-MM-DD HH:mm:ss" style="width: 100%"/>
+          <el-date-picker value-format="yyyy-MM-dd HH:mm:ss" style="width: 100%"/>
         </search-item>
       </el-col>
     </el-row>

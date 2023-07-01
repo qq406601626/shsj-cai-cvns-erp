@@ -111,9 +111,18 @@ export default {
       }
     }
   },
-  async mounted() {
-    this.userInfo = await fetchUserInfo()
-  }
+  watch:{
+    '$route'(to,from){
+      if(from.name==='auth-login'){
+        fetchUserInfo().then(userInfo=>{
+          this.userInfo = userInfo
+        }).catch(()=>{})
+      }
+    },
+  },
+  // async mounted() {
+  //   this.userInfo = await fetchUserInfo()
+  // }
 };
 </script>
 <style lang="scss">

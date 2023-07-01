@@ -44,7 +44,13 @@
         <el-table-column label="反馈手机号" prop="relatedUserPhone" align="center"/>
         <el-table-column label="操作" fixed="right" align="center">
           <template slot-scope="scope">
-            <el-button type="text" @click="handlerPreviewImg(scope.row)">查看图片</el-button>
+            <el-button
+                v-if="(scope.row.relatedUrls||'').replace(/[\[\]]/g, '')"
+                type="text"
+                @click="handlerPreviewImg(scope.row)"
+            >
+              查看图片
+            </el-button>
           </template>
         </el-table-column>
       </template>
