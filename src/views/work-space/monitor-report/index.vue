@@ -46,9 +46,9 @@
         <el-table-column label="监测点" prop="checkSpotsCount" align="center"/>
         <el-table-column label="报告时问殷" prop="报告时问殷" align="center">
           <template slot-scope="scope">
-            <span>{{ row.checkDateFrom }}</span>
+            <span>{{ scope.row.checkDateFrom }}</span>
             <span>-</span>
-            <span>{{ row.checkDateTo }}</span>
+            <span>{{ scope.row.checkDateTo }}</span>
           </template>
         </el-table-column>
         <el-table-column label="报告生成时问" prop="createTime" align="center"/>
