@@ -42,9 +42,9 @@
       </template>
       <template>
         <el-table-column label="设备序列号" prop="equipSerialNum" align="center"/>
-        <el-table-column label="项目名称" prop="projectName" align="center"/>
+        <el-table-column label="项目名称" prop="projectName" align="center" width="200" show-overflow-tooltip/>
         <el-table-column label="监测点" prop="checkSpotsCount" align="center"/>
-        <el-table-column label="报告时问殷" prop="报告时问殷" align="center" min-width="280">
+        <el-table-column label="报告时问殷" prop="报告时问殷" align="center" width="280">
           <template slot-scope="scope">
             <span>{{ scope.row.checkDateFrom }}</span>
             <span> - </span>
