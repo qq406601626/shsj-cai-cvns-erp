@@ -21,13 +21,14 @@
       <el-form-item label="检测时间段" prop="daterangeModel">
         <el-date-picker
             v-model="_daterangeModel"
-            type="daterange"
+            type="datetimerange"
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
             clearable
             value-format="yyyy-MM-dd HH:mm:ss"
             style="width: 100%"
+            format="yyyy-MM-dd HH:mm"
         >
         </el-date-picker>
       </el-form-item>
