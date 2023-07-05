@@ -41,9 +41,9 @@
       <el-table-column label="姓名" prop="name" align="center"/>
       <el-table-column label="手机号" prop="phone" align="center"/>
       <!--todo：缺少字段-->
-      <el-table-column label="监控设备数" prop="监控设备数" align="center"/>
+      <!--<el-table-column label="监控设备数" prop="监控设备数" align="center"/>-->
       <!--todo：缺少字段-->
-      <el-table-column label="生成报告数" prop="生成报告数" align="center"/>
+      <!--<el-table-column label="生成报告数" prop="生成报告数" align="center"/>-->
       <el-table-column label="注册时间" prop="createTime" align="center"/>
     </template>
   </content-layout>
