@@ -19,13 +19,14 @@
         </el-col>
         <el-col :sm="8" :xl="6">
           <search-item label="报告生成时间">
-            <!--todo：过滤项不生效-->
             <el-date-picker
                 v-model="pageData.searchData.searchModel.createTimeStart"
                 value-format="yyyy-MM-dd HH:mm:ss"
                 type="date"
                 placeholder="选择日期"
-                style="width: 100%">
+                style="width: 100%"
+                @change="pageData.searchData.searchModel.createTimeEnd = $event&&`${$event.slice(0,10)} 23:59:59`"
+            >
             </el-date-picker>
           </search-item>
         </el-col>
@@ -57,7 +58,7 @@
         <el-table-column label="申请人" prop="applyUserName" align="center"/>
         <el-table-column label="操作" fixed="right" align="center">
           <template slot-scope="scope">
-            <a :href="scope.row.pdfUrl || 'javascript:void(0)'">
+            <a :href="scope.row.excelUrl || 'javascript:void(0)'">
               <el-button type="text">下载查看</el-button>
             </a>
           </template>
@@ -80,7 +81,8 @@ export default {
         searchData: {
           searchModel: {
             projectName: '',
-            createTimeStart: ''
+            createTimeStart: '',
+            createTimeEnd: ''
           }
         },
       },

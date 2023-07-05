@@ -9,130 +9,70 @@ export default [
         },
     },
     {
-        path: 'userManage',
-        name: 'user-manage',
-        component: {render: h => h('router-view')},
+        path: 'userInfo',
+        name: 'user-info',
+        component: () => import('@/views/work-space/user-manage'),
         meta: {
-            label: '用户管理'
+            label: '用户信息'
         },
-        children: [
-            {
-                path: 'userInfo',
-                name: 'user-info',
-                component: () => import('@/views/work-space/user-manage'),
-                meta: {
-                    label: '用户信息'
-                },
-            },
-        ]
     },
     {
-        path: 'monitorManage',
-        name: 'monitor-manage',
-        component: {render: h => h('router-view')},
+        path: 'monitorDevice',
+        name: 'monitor-device',
+        component: () => import('@/views/work-space/monitor-device'),
         meta: {
-            label: '监测管理'
+            label: '监测设备'
         },
-        children: [
-            {
-                path: 'monitorDevice',
-                name: 'monitor-device',
-                component: () => import('@/views/work-space/monitor-device'),
-                meta: {
-                    label: '监测设备'
-                },
-            },
-        ]
     },
     {
-        path: 'monitorReport',
-        name: 'monitor-report',
-        component: {render: h => h('router-view')},
+        path: 'reportInfo',
+        name: 'report-info',
+        component: () => import('@/views/work-space/monitor-report'),
         meta: {
-            label: '监测报告'
+            label: '报告信息'
         },
-        children: [
-            {
-                path: 'reportInfo',
-                name: 'report-info',
-                component: () => import('@/views/work-space/monitor-report'),
-                meta: {
-                    label: '报告信息'
-                },
-            },
-        ]
     },
     {
-        path: 'deviceManage',
-        name: 'device-manage',
-        component: {render: h => h('router-view')},
+        path: 'deviceList',
+        name: 'device-list',
+        component: () => import('@/views/work-space/device-manage/device-list'),
         meta: {
-            label: '设备管理'
+            label: '设备列表'
         },
-        children: [
-            {
-                path: 'deviceList',
-                name: 'device-list',
-                component: () => import('@/views/work-space/device-manage/device-list'),
-                meta: {
-                    label: '设备列表'
-                },
-            },
-            {
-                path: 'addDevice',
-                name: 'add-device',
-                component: () => import('@/views/work-space/device-manage/add-device'),
-                meta: {
-                    label: '新增设备',
-                    hidden: true
-                },
-            },
-            {
-                path: 'editDevice',
-                name: 'edit-device',
-                component: () => import('@/views/work-space/device-manage/edit-device'),
-                meta: {
-                    label: '编辑设备',
-                    hidden: true,
-                },
-            }
-        ]
     },
     {
-        path: 'feedback',
-        name: 'feedback',
-        component: {render: h => h('router-view')},
+        path: 'addDevice',
+        name: 'add-device',
+        component: () => import('@/views/work-space/device-manage/add-device'),
         meta: {
-            label: '意见反馈'
+            label: '新增设备',
+            hidden: true
         },
-        children: [
-            {
-                path: 'feedbackInfo',
-                name: 'feedback-info',
-                component: () => import('@/views/work-space/feedback'),
+    },
+    {
+        path: 'editDevice',
+        name: 'edit-device',
+        component: () => import('@/views/work-space/device-manage/edit-device'),
+        meta: {
+            label: '编辑设备',
+            hidden: true,
+        },
+    },
+    {
+        path: 'feedbackInfo',
+        name: 'feedback-info',
+        component: () => import('@/views/work-space/feedback'),
 
-                meta: {
-                    label: '反馈信息'
-                },
-            },
-        ]
+        meta: {
+            label: '反馈信息'
+        },
     },
     {
-        path: 'accountManage',
-        name: 'account-manage',
-        component: {render: h => h('router-view')},
+        path: 'accountInfo',
+        name: 'account-info',
+        component: () => import('@/views/work-space/account-manage'),
         meta: {
-            label: '账号管理'
+            label: '账号信息'
         },
-        children: [
-            {
-                path: 'accountInfo',
-                name: 'account-info',
-                component: () => import('@/views/work-space/account-manage'),
-                meta: {
-                    label: '账号信息'
-                },
-            },
-        ]
     },
 ]

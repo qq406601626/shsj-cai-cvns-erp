@@ -47,11 +47,6 @@
     <template>
       <el-table-column label="序列设备号" prop="equipSerialNum" align="center"/>
       <el-table-column label="项目名称" prop="projectName" align="center"/>
-      <el-table-column label="所在位置经纬度" prop="所在位置经纬度" align="center">
-        <template slot-scope="scope">
-          <span v-if="scope.row.gpsInfo">{{ [scope.row.gpsInfo.longitude,scope.row.gpsInfo.latitude].join(',') }}</span>
-        </template>
-      </el-table-column>
       <el-table-column label="监测点" prop="checkSpotsCount" align="center"/>
       <el-table-column label="开始监测时问" prop="startMonitorTime" align="center"/>
       <el-table-column label="监测时长" prop="checkTime" align="center">

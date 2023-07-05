@@ -8,7 +8,6 @@
   >
     <el-row slot="search-controls" :gutter="40">
       <el-col :sm="8" :xl="6">
-        <!--todo：后端不支持过滤-->
         <search-item label="手机号">
           <el-input
               v-model="pageData.searchData.searchModel.phone"
@@ -17,13 +16,13 @@
           />
         </search-item>
       </el-col>
-      <!--todo：后端不支持过滤-->
       <el-col :sm="8" :xl="6">
         <search-item label="注册时间">
           <el-date-picker
-              v-model="pageData.searchData.searchModel.createTime"
+              v-model="pageData.searchData.searchModel.createTimeStart"
               value-format="yyyy-MM-dd HH:mm:ss"
               style="width: 100%"
+              @change="pageData.searchData.searchModel.createTimeEnd = $event&&`${$event.slice(0,10)} 23:59:59`"
           />
         </search-item>
       </el-col>
@@ -59,10 +58,17 @@ export default {
         searchData: {
           searchModel: {
             phone: '',
-            createTime: ''
+            createTimeStart: '',
+            createTimeEnd: ''
           }
         },
       },
+    }
+  },
+  methods: {
+    aaa(v) {
+      //  pageData.searchData.searchModel.createTimeEnd = `${$event.slice(0,10)} 23:59:59`
+      console.log('111', v)
     }
   },
   mounted() {

@@ -6,67 +6,28 @@
         <router-link to="/" style="flex-shrink: 0;text-align: center">
           <img src="~@/assets/logo-tiny.png" alt="logo" height="100">
         </router-link>
-        <ul class="aside-nav-manu el-menu"
-            style="background-color: #001529; flex-grow: 0; border-right: none;">
-          <li class="el-submenu">
-            <ul class="el-menu el-menu--inline"
-                style="background-color: #001529; ">
-              <li :class="['el-menu-item',{'is-active':$route.path==='/'}]"
-                  style="padding-left: 40px; color: #9ea6ae; background-color: #001529;">
-                <router-link to="/"
-                             style="color:inherit; text-decoration: none;display: block;width: 100%;height: 100%">
-                  <i class="el-icon-s-home"></i>
-                  <span>工作台</span>
-                </router-link>
-              </li>
-            </ul>
-          </li>
-        </ul>
         <el-menu
             router
             background-color="#000c17"
             text-color="#9ea6ae"
             :default-openeds="['work-space'].concat($route.matched.map(route=>route.name||''))"
             :default-active="$route.name || undefined"
-            active-text-color="#80c3ed"
+            active-text-color="#ffffff"
             style="flex-grow: 0;border-right: none"
             class="aside-nav-manu"
         >
-          <el-submenu
+          <el-menu-item index="index" :route="{path:'/'}">
+            <span>工作台</span>
+          </el-menu-item>
+          <el-menu-item
               v-for="(submenu,submenuIndex) in routerPaths"
               v-if="!submenu.meta?.hidden"
               :key="submenuIndex"
               :index="submenu.name"
+              :route="submenu"
           >
-            <template slot="title">
-              <i :class="submenu.icon" style="color: #ffffff"/>
-              <span>{{ submenu.meta.label }}</span>
-            </template>
-            <template v-for="(submenuItem) in submenu.children">
-              <el-submenu v-if="submenuItem.children" :index="submenuItem.name">
-                <template slot="title">
-                  <i :class="submenuItem.icon" style="color: #ffffff"/>
-                  <span>{{ submenuItem.meta.label }}</span>
-                </template>
-                <el-menu-item
-                    v-for="(thirdMenu,thirdMenuIndex) in submenuItem.children"
-                    v-if="!thirdMenu.meta?.hidden"
-                    :key="thirdMenuIndex"
-                    :index="thirdMenu.name"
-                    :route="thirdMenu"
-                >
-                  <span>{{ thirdMenu.meta.label }}</span>
-                </el-menu-item>
-              </el-submenu>
-              <el-menu-item
-                  v-else-if="!submenuItem.meta?.hidden"
-                  :index="submenuItem.name"
-                  :route="submenuItem"
-              >
-                <span>{{ submenuItem.meta.label }}</span>
-              </el-menu-item>
-            </template>
-          </el-submenu>
+            <span>{{ submenu.meta.label }}</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       <el-container>
@@ -126,27 +87,16 @@ body {
     height: 100vh;
 
     .aside-nav-manu {
-      .el-submenu {
-        .el-menu-item {
-          &:hover, &.is-active {
-            background: #2b2fed !important;
-            color: #ffffff !important;
+      .el-menu-item {
+        &:hover, &.is-active {
+          background: #2b2fed !important;
+          color: #ffffff !important;
 
-            .el-icon-s-home {
-              color: #ffffff !important;
-            }
+          .el-icon-s-home {
+            color: #ffffff !important;
           }
         }
-
-        .el-submenu__title {
-          background: #001529 !important;
-        }
-
-        .el-submenu__icon-arrow {
-          color: #9ea6ae;
-        }
       }
-
     }
   }
 }
