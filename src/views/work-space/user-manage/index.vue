@@ -78,6 +78,7 @@ export default {
           id: row.id
         })
         this.$set(row, 'loading', false)
+        this.fetchTableData()
       } catch (e) {
         this.$set(row, 'loading', false)
       }
