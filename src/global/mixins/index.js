@@ -16,7 +16,7 @@ export default {
                     pageSize: 100,
                     total: 0,
                     pageCount: 0, // 最大页码按钮数
-                    pageSizes: [100, 200, 300, 400],
+                    pageSizes: [100, 200],
                     layout: 'total, sizes, prev, pager, next, jumper'
                 }
             }

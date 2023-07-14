@@ -40,11 +40,16 @@
       <el-table-column label="用户ID" prop="id" align="center"/>
       <el-table-column label="姓名" prop="name" align="center"/>
       <el-table-column label="手机号" prop="phone" align="center"/>
-      <!--todo：缺少字段-->
-      <!--<el-table-column label="监控设备数" prop="监控设备数" align="center"/>-->
-      <!--todo：缺少字段-->
-      <!--<el-table-column label="生成报告数" prop="生成报告数" align="center"/>-->
       <el-table-column label="注册时间" prop="createTime" align="center"/>
+      <el-table-column label="操作" align="center" #default="{row}">
+        <el-button
+            type="text"
+            :loading="row.loading"
+            @click="deleteRow(row)"
+        >
+          删除
+        </el-button>
+      </el-table-column>
     </template>
   </content-layout>
 </template>
@@ -66,9 +71,16 @@ export default {
     }
   },
   methods: {
-    aaa(v) {
-      //  pageData.searchData.searchModel.createTimeEnd = `${$event.slice(0,10)} 23:59:59`
-      console.log('111', v)
+    async deleteRow(row) {
+      try {
+        this.$set(row, 'loading', true)
+        await this.$axios.post('/biz/clientUser/deleted', {
+          id: row.id
+        })
+        this.$set(row, 'loading', false)
+      } catch (e) {
+        this.$set(row, 'loading', false)
+      }
     }
   },
   mounted() {
