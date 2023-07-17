@@ -41,6 +41,13 @@
             >
               重设密码
             </el-button>
+            <el-button
+                type="text"
+                @click="handlerDelete(scope.row)"
+                :loading="scope.row._deleteButtonLoading"
+            >
+              删除
+            </el-button>
           </template>
         </el-table-column>
       </template>
@@ -103,6 +110,17 @@ export default {
         this.$set(row, '_resetButtonLoading', false)
       } catch (e) {
         this.$set(row, '_resetButtonLoading', false)
+      }
+    },
+    async handlerDelete(row){
+      try {
+        this.$set(row, '_deleteButtonLoading', true)
+        await this.$axios.post('/sys/user/delete', {id: row.id})
+        this.$message.success('删除成功')
+        this.fetchTableData()
+        this.$set(row, '_deleteButtonLoading', false)
+      } catch (e) {
+        this.$set(row, '_deleteButtonLoading', false)
       }
     }
   },
